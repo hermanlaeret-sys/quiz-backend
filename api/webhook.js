@@ -97,6 +97,7 @@ export default async function handler(req, res) {
     });
 
     var reportHtml = message.content[0].text;
+    reportHtml = reportHtml.replace(/^```html\s*/i, '').replace(/\s*```$/, '').trim();
 
     var result = await supabase.from("reports").insert({
       token: token,
