@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "order_id or token required" });
   }
 
-  var query = supabase.from("reports").select("quiz_type, report_html, created_at");
+  var query = supabase.from("reports").select("quiz_type, report_html, scores, created_at");
 
   if (orderId) {
     query = query.eq("order_id", orderId);
